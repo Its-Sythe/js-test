@@ -40,4 +40,16 @@ describe('All the tests', () => {
             expect(() => src.calc.divide(4, 0)).toThrow(Error);
         })
     })
+
+    describe('Cipher *pol* test', () => {
+        test('first test', () => {
+            expect(src.caesarCipher('xyz', 3)).toEqual('abc')
+        })
+        test('second test', () => {
+            expect(src.caesarCipher('HeLLo', 3)).toEqual('KhOOr')
+        })
+        test('third test', () => {
+            expect(src.caesarCipher('Hello, World!', 3)).toEqual('Khoor, Zruog!')
+        })
+    })
 })

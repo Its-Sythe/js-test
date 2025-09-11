@@ -16,5 +16,18 @@ const calc = {
     },
 }
 
-export { capitalize, reverseString, calc }
+function caesarCipher(text, shift) {
+    let arr = [];
+    for (let i = 0; i < text.length; i++) {
+        if (text[i].toUpperCase() != text[i].toLowerCase()) {
+            arr.push(String.fromCharCode(text.charCodeAt(i) + shift));
+        } else {
+            arr.push(text[i])
+        }
+    }
+    return arr.join('')
+}
+
+
+export { capitalize, reverseString, calc, caesarCipher }
 
