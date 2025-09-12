@@ -16,18 +16,25 @@ const calc = {
     },
 }
 
-function caesarCipher(text, shift) {
+function caesarCipher(str, shift) {
+    const n = shift > 0 ? shift : 26 + (shift % 26)
     let arr = [];
-    for (let i = 0; i < text.length; i++) {
-        if (text[i].toUpperCase() != text[i].toLowerCase()) {
-            arr.push(String.fromCharCode(text.charCodeAt(i) + shift));
+
+    for (let i = 0; i < str.length; i++) {
+        const c = str.charCodeAt(i)
+        if (str[i].toUpperCase() != str[i].toLowerCase()) {
+            if (c >= 65 && c <= 90)
+                arr.push(String.fromCharCode(((c - 65 + n) % 26) + 65))
+            if (c >= 97 && c <= 122)
+                arr.push(String.fromCharCode(((c - 97 + n) % 26) + 97))
         } else {
-            arr.push(text[i])
+            arr.push(str[i])
         }
     }
     return arr.join('')
 }
 
+console.log(caesarCipher('xyz', 3))
 
 export { capitalize, reverseString, calc, caesarCipher }
 
