@@ -52,4 +52,20 @@ describe('All the tests', () => {
             expect(src.caesarCipher('Hello, World!', 3)).toEqual('Khoor, Zruog!')
         })
     })
+
+    describe('Array tests', () => {
+        const arr = [1, 8, 3, 4, 2, 6]
+        test('first test', () => {
+            expect(src.analyzeArray(arr).average).toEqual(4)
+        })
+        test('second test', () => {
+            expect(src.analyzeArray(arr).min).toEqual(1)
+        })
+        test('third test', () => {
+            expect(src.analyzeArray(arr).max).toEqual(8)
+        })
+        test('fourth test', () => {
+            expect(src.analyzeArray(arr).length).toEqual(6)
+        })
+    })
 })
